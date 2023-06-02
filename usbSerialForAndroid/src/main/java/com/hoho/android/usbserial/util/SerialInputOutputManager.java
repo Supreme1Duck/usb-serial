@@ -193,8 +193,10 @@ public class SerialInputOutputManager implements Runnable {
         }
         Log.i(TAG, "Running ...");
         try {
-            if(mThreadPriority != Process.THREAD_PRIORITY_DEFAULT)
+            if(mThreadPriority != Process.THREAD_PRIORITY_DEFAULT) {
+                Log.d("DDebug", "Process thread priority default");
                 Process.setThreadPriority(mThreadPriority);
+            }
             while (true) {
                 if (getState() != State.RUNNING) {
                     Log.i(TAG, "Stopping mState=" + getState());
